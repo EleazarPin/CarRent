@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_neumaticos"
+            android:icon="@drawable/wheel_icon"
+            android:title="Tipo de neumáticos" />
+        <item
+            android:id="@+id/nav_nivelhumo"
+            android:icon="@drawable/smoke_icon"
+            android:title="Establecer límites de humo" />
+        <item
+            android:id="@+id/nav_importararchivo"
+            android:icon="@drawable/files_icon"
+            android:title="Importar archivo" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/setting_icon"
+            android:title="Settings" />
+        <!--<item-->
+            <!--android:id="@+id/nav_manage"-->
+            <!--android:icon="@drawable/ic_menu_manage"-->
+            <!--android:title="Tools" />-->
+    </group>
+
+    <item android:title="Otras acciones">
+        <menu>
+            <item
+                android:id="@+id/nav_bluetooth"
+                android:icon="@drawable/bluetooth_icon"
+                android:title="Configurar Bluetooth"
+                android:visible="true" />
+            <item
+                android:id="@+id/nav_reset_arduino"
+                android:icon="@drawable/arduino_icon"
+                android:title="Reset arduino"
+                android:visible="true" />
+            <item
+                android:id="@+id/nav_exit_app"
+                android:icon="@drawable/exit_icon"
+                android:title="Salir"
+                android:visible="true" />
+        </menu>
+    </item>
+
+</menu>

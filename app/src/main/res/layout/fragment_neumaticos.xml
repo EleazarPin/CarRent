@@ -1,0 +1,92 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/car_rent_normal_background"
+    tools:context="com.example.carrent.carrent.NeumaticosFragment">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        tools:text="Seleccione el tipo de neumáticos" />
+
+    <RadioButton
+        android:id="@+id/rdbNormales"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:checked="true"
+        android:text="RadioButton"
+        android:textColor="@android:color/black"
+        android:buttonTint="@android:color/black"
+        tools:text="Normales"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+
+    <RadioButton
+        android:id="@+id/rdbConCadena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/rdbNormales"
+        android:layout_alignBottom="@+id/rdbNormales"
+        android:layout_marginLeft="67dp"
+        android:layout_marginStart="67dp"
+        android:layout_toRightOf="@+id/rdbNormales"
+        android:text="RadioButton"
+        android:textColor="@android:color/black"
+        android:buttonTint="@android:color/black"
+        tools:text="Con Cadena" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/rdbNormales"
+        android:layout_alignStart="@+id/rdbNormales"
+        android:layout_below="@+id/rdbNormales"
+        android:layout_marginTop="50dp"
+        android:text="TextView"
+        android:textSize="28sp"
+        tools:text="Información adicional:" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Velocidad máxima"
+        android:textSize="24sp"
+        android:layout_below="@+id/textView4"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/textView5"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_toStartOf="@+id/rdbConCadena"
+        android:layout_toLeftOf="@+id/rdbConCadena" />
+
+</RelativeLayout>
