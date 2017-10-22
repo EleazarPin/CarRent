@@ -19,4 +19,10 @@
     <string name="activar_dispositivos">Activar</string>
     <string name="buscar_dispositivos">Buscar dispositivos</string>
     <string name="dispositivos_emparejados">Dispositivos emparejados</string>
+    <string name="name">Name</string>
+    <string name="rdbNormalesText">Normales</string>
+    <string name="rdbConCadenaText">Con cadena</string>
+    <string name="txtVwTipoNeumaticos">Seleccione el tipo de neumáticos</string>
+    <string name="textview1">Información adicional:</string>
+    <string name="velocidad_m_xima">Velocidad máxima</string>
 </resources>

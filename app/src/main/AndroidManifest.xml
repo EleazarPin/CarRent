@@ -26,9 +26,7 @@
             android:name=".NavigationDrawer"
             android:label="@string/title_activity_navigation_drawer"
             android:theme="@style/AppTheme" />
-        <activity android:name=".DeviceListActivity" />
         <activity android:name=".DeviceListAdapter" />
-        <activity android:name=".ComunicacionActivity"></activity>
     </application>
 
 </manifest>

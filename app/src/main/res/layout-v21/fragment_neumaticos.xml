@@ -3,11 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/car_rent_normal_background"
     tools:context="com.example.carrent.carrent.NeumaticosFragment">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtVwTipoNeumaticos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -17,11 +16,11 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="15dp"
         android:fontFamily="sans-serif"
-        android:text="TextView"
-        android:textColor="@android:color/black"
+        android:text="@string/txtVwTipoNeumaticos"
+        android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold"
-        tools:text="Seleccione el tipo de neumáticos" />
+        tools:ignore="RtlHardcoded" />
 
     <RadioButton
         android:id="@+id/rdbNormales"
@@ -29,13 +28,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:checked="true"
-        android:text="RadioButton"
-        android:textColor="@android:color/black"
-        android:buttonTint="@android:color/black"
-        tools:text="Normales"
-        android:layout_below="@+id/textView2"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignStart="@+id/textView2" />
+        android:text="@string/rdbNormalesText"
+        android:textColor="@android:color/white"
+        android:buttonTint="@android:color/background_light"
+        android:layout_below="@+id/txtVwTipoNeumaticos"
+        android:layout_alignLeft="@+id/txtVwTipoNeumaticos"
+        android:layout_alignStart="@+id/txtVwTipoNeumaticos"
+        tools:ignore="RtlHardcoded" />
 
     <RadioButton
         android:id="@+id/rdbConCadena"
@@ -46,10 +45,10 @@
         android:layout_marginLeft="67dp"
         android:layout_marginStart="67dp"
         android:layout_toRightOf="@+id/rdbNormales"
-        android:text="RadioButton"
-        android:textColor="@android:color/black"
-        android:buttonTint="@android:color/black"
-        tools:text="Con Cadena" />
+        android:text="@string/rdbConCadenaText"
+        android:textColor="@android:color/white"
+        android:buttonTint="@android:color/background_light"
+        tools:ignore="RtlHardcoded" />
 
     <TextView
         android:id="@+id/textView4"
@@ -59,20 +58,21 @@
         android:layout_alignStart="@+id/rdbNormales"
         android:layout_below="@+id/rdbNormales"
         android:layout_marginTop="50dp"
-        android:text="TextView"
+        android:text="@string/textview1"
         android:textSize="28sp"
-        tools:text="Información adicional:" />
+        tools:ignore="RtlHardcoded" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Velocidad máxima"
+        android:text="@string/velocidad_m_xima"
         android:textSize="24sp"
         android:layout_below="@+id/textView4"
         android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4" />
+        android:layout_alignStart="@+id/textView4"
+        tools:ignore="RtlHardcoded" />
 
     <EditText
         android:id="@+id/editText"
@@ -80,13 +80,14 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="@string/name"
         android:textAppearance="@android:style/TextAppearance.Material.Title"
         android:layout_marginTop="18dp"
         android:layout_below="@+id/textView5"
         android:layout_alignLeft="@+id/textView5"
         android:layout_alignStart="@+id/textView5"
         android:layout_toStartOf="@+id/rdbConCadena"
-        android:layout_toLeftOf="@+id/rdbConCadena" />
+        android:layout_toLeftOf="@+id/rdbConCadena"
+        tools:ignore="RtlHardcoded" />
 
 </RelativeLayout>
