@@ -2,77 +2,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.carrent.carrent.NeumaticosFragment">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/txtVwTipoNeumaticos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/radioGroup3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="25dp"
         android:fontFamily="sans-serif"
         android:text="@string/txtVwTipoNeumaticos"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold"
-        tools:ignore="RtlHardcoded" />
-
-    <RadioButton
-        android:id="@+id/rdbNormales"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:checked="true"
-        android:text="@string/rdbNormalesText"
-        android:textColor="@android:color/white"
-        android:buttonTint="@android:color/background_light"
-        android:layout_below="@+id/txtVwTipoNeumaticos"
-        android:layout_alignLeft="@+id/txtVwTipoNeumaticos"
-        android:layout_alignStart="@+id/txtVwTipoNeumaticos"
-        tools:ignore="RtlHardcoded" />
-
-    <RadioButton
-        android:id="@+id/rdbConCadena"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/rdbNormales"
-        android:layout_alignBottom="@+id/rdbNormales"
-        android:layout_marginLeft="67dp"
-        android:layout_marginStart="67dp"
-        android:layout_toRightOf="@+id/rdbNormales"
-        android:text="@string/rdbConCadenaText"
-        android:textColor="@android:color/white"
-        android:buttonTint="@android:color/background_light"
-        tools:ignore="RtlHardcoded" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/rdbNormales"
-        android:layout_alignStart="@+id/rdbNormales"
-        android:layout_below="@+id/rdbNormales"
-        android:layout_marginTop="50dp"
-        android:text="@string/textview1"
-        android:textSize="28sp"
-        tools:ignore="RtlHardcoded" />
+        tools:ignore="RtlHardcoded"
+        android:layout_alignRight="@+id/editText"
+        android:layout_alignEnd="@+id/editText" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:text="@string/velocidad_m_xima"
         android:textSize="24sp"
-        android:layout_below="@+id/textView4"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4"
-        tools:ignore="RtlHardcoded" />
+        tools:ignore="RtlHardcoded"
+        android:layout_alignBaseline="@+id/editText"
+        android:layout_alignBottom="@+id/editText"
+        android:layout_alignLeft="@+id/radioGroup3"
+        android:layout_alignStart="@+id/radioGroup3" />
 
     <EditText
         android:id="@+id/editText"
@@ -81,12 +41,62 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/name"
-        android:layout_marginTop="18dp"
-        android:layout_below="@+id/textView5"
-        android:layout_alignLeft="@+id/textView5"
-        android:layout_alignStart="@+id/textView5"
-        android:layout_toStartOf="@+id/rdbConCadena"
-        android:layout_toLeftOf="@+id/rdbConCadena"
-        tools:ignore="RtlHardcoded" />
+        tools:ignore="RtlHardcoded"
+        android:layout_marginBottom="23dp"
+        android:layout_above="@+id/btnEnviarNyV"
+        android:layout_alignLeft="@+id/btnEnviarNyV"
+        android:layout_alignStart="@+id/btnEnviarNyV"
+        android:layout_alignRight="@+id/btnEnviarNyV"
+        android:layout_alignEnd="@+id/btnEnviarNyV" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="31dp"
+        android:layout_above="@+id/editText"
+        android:layout_alignLeft="@+id/txtVwTipoNeumaticos"
+        android:layout_alignStart="@+id/txtVwTipoNeumaticos">
+
+        <RadioButton
+            android:id="@+id/rdbNormales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txtVwTipoNeumaticos"
+            android:layout_alignStart="@+id/txtVwTipoNeumaticos"
+            android:layout_below="@+id/txtVwTipoNeumaticos"
+            android:layout_marginTop="16dp"
+            android:buttonTint="@android:color/background_light"
+            android:checked="true"
+            android:text="@string/rdbNormalesText"
+            android:textColor="@android:color/white"
+            tools:ignore="RtlHardcoded" />
+
+        <RadioButton
+            android:id="@+id/rdbConCadena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView4"
+            android:layout_alignLeft="@+id/radioGroup3"
+            android:layout_alignStart="@+id/radioGroup3"
+            android:layout_marginBottom="25dp"
+            android:buttonTint="@android:color/background_light"
+            android:text="@string/rdbConCadenaText"
+            android:textColor="@android:color/white"
+            tools:ignore="RtlHardcoded" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnEnviarNyV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:layout_marginRight="21dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="209dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

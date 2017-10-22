@@ -70,7 +70,7 @@
             android:checked="true"
             android:text="@string/rdbNormalesText"
             android:textColor="@android:color/white"
-            tools:ignore="RtlHardcoded" />
+            tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
 
         <RadioButton
             android:id="@+id/rdbConCadena"
@@ -83,7 +83,7 @@
             android:buttonTint="@android:color/background_light"
             android:text="@string/rdbConCadenaText"
             android:textColor="@android:color/white"
-            tools:ignore="RtlHardcoded" />
+            tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
 
     </RadioGroup>
 
@@ -91,12 +91,12 @@
         android:id="@+id/btnEnviarNyV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        android:layout_marginRight="21dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="209dp"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginBottom="209dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginRight="21dp"
+        android:text="Enviar" />
 
 </RelativeLayout>
