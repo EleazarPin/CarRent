@@ -109,30 +109,6 @@ public class MainActivity extends Activity {
         }
     }
 
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode,
-//                                           String permissions[], int[] grantResults) {
-//        switch (requestCode) {
-//            case 1: {
-//                if (grantResults.length > 0
-//                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                    //proceedDiscovery(); // --->
-//                } else {
-//                    //TODO re-request
-//                }
-//                break;
-//            }
-//        }
-//    }
-
-//    private void proceedDiscovery() {
-//        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-//        filter.addAction(BluetoothDevice.ACTION_NAME_CHANGED);
-//        registerReceiver(mReceiver, filter);
-//
-//        mBluetoothAdapter.startDiscovery();
-//    }
-
     @Override
     protected void onPause() {
         if (mBluetoothAdapter != null) {
@@ -140,6 +116,7 @@ public class MainActivity extends Activity {
                 mBluetoothAdapter.cancelDiscovery();
             }
         }
+        txtDispositivoConectado.setText(mDeviceList.toString());
         super.onPause();
     }
 

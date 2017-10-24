@@ -126,15 +126,13 @@ public class DeviceListActivity extends Activity {
                 {
                     //Si se detecto que se puedo emparejar el bluethoot
                     showToast("Emparejado");
-                    BluetoothDevice dispositivo = (BluetoothDevice) mAdapter.getItem(posicionListBluethoot);
+                    //BluetoothDevice dispositivo = (BluetoothDevice) mAdapter.getItem(posicionListBluethoot);
 
-                    //se inicia el Activity de comunicacion con el bluethoot, para transferir los datos.
-                    //Para eso se le envia como parametro la direccion(MAC) del bluethoot Arduino
-                    String direccionBluethoot = dispositivo.getAddress();
-                    Intent i = new Intent(DeviceListActivity.this, ComunicationActivity.class);
-                    i.putExtra("Direccion_Bluethoot", direccionBluethoot);
+                    //String direccionBluethoot = dispositivo.getAddress();
+                    //Intent i = new Intent(DeviceListActivity.this, ComunicationActivity.class);
+                    //i.putExtra("Direccion_Bluethoot", direccionBluethoot);
 
-                    startActivity(i);
+                    //startActivity(i);
 
                 }  //si se detrecto un desaemparejamiento
                 else if (state == BluetoothDevice.BOND_NONE && prevState == BluetoothDevice.BOND_BONDED) {
