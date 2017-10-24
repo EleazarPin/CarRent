@@ -10,6 +10,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -70,8 +72,6 @@ public class MainActivity extends Activity {
             swActivarBluetooth.setOnCheckedChangeListener(swBluetooth);
             btnBuscarDispositivos.setOnClickListener(btnBuscarDispositivosListener);
 
-            ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
-
             //se determina si esta activado el bluetooth
             if (mBluetoothAdapter.isEnabled())
             {
@@ -85,16 +85,53 @@ public class MainActivity extends Activity {
 
         filter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED); //Cambia el estado del bluetooth (Acrtivado /Desactivado)
         filter.addAction(BluetoothDevice.ACTION_FOUND); //Se encuentra un dispositivo bluetooth al realizar una busqueda
+        filter.addAction(BluetoothDevice.ACTION_NAME_CHANGED);
         filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED); //Cuando se comienza una busqueda de bluetooth
         filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED); //cuando la busqueda de bluetooth finaliza
 
         //se define (registra) el handler que captura los broadcast anterirmente mencionados.
+        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
+        checkLocationPermission();
         registerReceiver(mReceiver, filter);
 
         if (getIntent().getBooleanExtra("EXIT", false)) {
             finish();
         }
     }
+
+    protected void checkLocationPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                    1);
+        }
+    }
+
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode,
+//                                           String permissions[], int[] grantResults) {
+//        switch (requestCode) {
+//            case 1: {
+//                if (grantResults.length > 0
+//                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                    //proceedDiscovery(); // --->
+//                } else {
+//                    //TODO re-request
+//                }
+//                break;
+//            }
+//        }
+//    }
+
+//    private void proceedDiscovery() {
+//        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+//        filter.addAction(BluetoothDevice.ACTION_NAME_CHANGED);
+//        registerReceiver(mReceiver, filter);
+//
+//        mBluetoothAdapter.startDiscovery();
+//    }
 
     @Override
     protected void onPause() {
@@ -136,7 +173,7 @@ public class MainActivity extends Activity {
         }
     };
 
-    //Handler que captura los brodacast que emite el SO al ocurrir los eventos del bluetooth
+//    Handler que captura los brodacast que emite el SO al ocurrir los eventos del bluetooth
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
 
