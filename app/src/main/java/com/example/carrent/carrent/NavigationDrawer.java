@@ -96,11 +96,11 @@ public class NavigationDrawer extends AppCompatActivity
         } else if (id == R.id.nav_settings){
 
         } else if (id == R.id.nav_bluetooth){
-//            BluetoothFragment bluetoothFragment = new BluetoothFragment();
-//            FragmentManager manager = getSupportFragmentManager();
-//            manager.beginTransaction().replace(R.id.relativelayout_for_fragment,
-//                    bluetoothFragment,
-//                    bluetoothFragment.getTag()).commit();
+            BluetoothFragment bluetoothFragment = new BluetoothFragment();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.relativelayout_for_fragment,
+                    bluetoothFragment,
+                    bluetoothFragment.getTag()).commit();
         } else if (id == R.id.nav_reset_arduino){
 
         } else if (id == R.id.nav_exit_app){

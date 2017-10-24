@@ -31,8 +31,7 @@ public class MainActivity extends Activity {
 
     private Switch swActivarBluetooth;
     private Button btnBuscarDispositivos;
-    private TextView txtDispositivoConectado;
-    private Button btnComenzar;
+    private Button btnVer;
     private BluetoothAdapter mBluetoothAdapter;
     private ProgressDialog mProgressDlg;
     private ArrayList<BluetoothDevice> mDeviceList = new ArrayList<BluetoothDevice>();
@@ -44,23 +43,19 @@ public class MainActivity extends Activity {
 
         swActivarBluetooth = (Switch) findViewById(R.id.switchBluetooth);
         btnBuscarDispositivos = (Button) findViewById(R.id.btnBuscarDispositivos);
-        txtDispositivoConectado = (TextView)findViewById(R.id.txtDispositivoConectado);
-        btnComenzar = (Button)findViewById(R.id.btnComenzar);
-        //btnComenzar.setOnClickListener(botonListener);
+        btnVer = (Button) findViewById(R.id.btnVer);
+        btnVer .setOnClickListener(botonListener);
 
-        //Se crea un adaptador para podermanejar el bluetooth del celular
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
-        //Se Crea la ventana de dialogo que indica que se esta buscando dispositivos bluetooth
         mProgressDlg = new ProgressDialog(this);
 
         mProgressDlg.setMessage("Buscando dispositivos...");
         mProgressDlg.setCancelable(false);
 
-        //se asocia un listener al boton cancelar para la ventana de dialogo ue busca los dispositivos bluetooth
         mProgressDlg.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancelar", btnCancelarDialogListener);
 
-        //se determina si existe bluetooth en el celular
+
         if (mBluetoothAdapter == null)
         {
             //si el celular no soporta bluetooth
@@ -68,11 +63,9 @@ public class MainActivity extends Activity {
         }
         else
         {
-            //si el celular soporta bluetooth, se definen los listener para los botones de la activity
             swActivarBluetooth.setOnCheckedChangeListener(swBluetooth);
             btnBuscarDispositivos.setOnClickListener(btnBuscarDispositivosListener);
 
-            //se determina si esta activado el bluetooth
             if (mBluetoothAdapter.isEnabled())
             {
                 swActivarBluetooth.setChecked(true);
@@ -80,7 +73,6 @@ public class MainActivity extends Activity {
             }
         }
 
-        //se definen un broadcastReceiver que captura el broadcast del SO cuando captura los siguientes eventos:
         IntentFilter filter = new IntentFilter();
 
         filter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED); //Cambia el estado del bluetooth (Acrtivado /Desactivado)
@@ -116,7 +108,6 @@ public class MainActivity extends Activity {
                 mBluetoothAdapter.cancelDiscovery();
             }
         }
-        txtDispositivoConectado.setText(mDeviceList.toString());
         super.onPause();
     }
 
@@ -131,7 +122,7 @@ public class MainActivity extends Activity {
         public void onClick(View v) {
             Intent intent;
 
-            if(v.getId()==R.id.btnComenzar) {
+            if(v.getId()==R.id.btnVer) {
                 intent=new Intent(MainActivity.this, NavigationDrawer.class);
                 startActivity(intent);
             }

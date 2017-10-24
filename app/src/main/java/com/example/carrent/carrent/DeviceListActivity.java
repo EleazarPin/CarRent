@@ -126,13 +126,15 @@ public class DeviceListActivity extends Activity {
                 {
                     //Si se detecto que se puedo emparejar el bluethoot
                     showToast("Emparejado");
-                    //BluetoothDevice dispositivo = (BluetoothDevice) mAdapter.getItem(posicionListBluethoot);
+                    BluetoothDevice dispositivo = (BluetoothDevice) mAdapter.getItem(posicionListBluethoot);
 
                     //String direccionBluethoot = dispositivo.getAddress();
                     //Intent i = new Intent(DeviceListActivity.this, ComunicationActivity.class);
                     //i.putExtra("Direccion_Bluethoot", direccionBluethoot);
 
-                    //startActivity(i);
+                    Intent navigationIntent = new Intent(DeviceListActivity.this, NavigationDrawer.class);
+                    navigationIntent.putExtra("Dispositivo", dispositivo);
+                    startActivity(navigationIntent);
 
                 }  //si se detrecto un desaemparejamiento
                 else if (state == BluetoothDevice.BOND_NONE && prevState == BluetoothDevice.BOND_BONDED) {

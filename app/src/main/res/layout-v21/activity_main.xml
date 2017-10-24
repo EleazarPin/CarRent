@@ -42,19 +42,6 @@
         android:layout_alignLeft="@+id/txtTituloLogin"
         android:layout_alignStart="@+id/txtTituloLogin" />
 
-    <Button
-        android:id="@+id/btnComenzar"
-        style="@android:style/Widget.Holo.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/relativeLayout"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/relativeLayout"
-        android:layout_marginBottom="15dp"
-        android:elevation="0dp"
-        android:text="@string/comenzar"
-        android:textStyle="bold" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -72,53 +59,31 @@
         android:id="@+id/switchBluetooth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/relativeLayout"
-        android:layout_alignRight="@+id/relativeLayout"
-        android:layout_below="@+id/txtDescripcionLogin"
-        android:layout_marginTop="30dp"
         android:checked="false"
         android:paddingStart="50dp"
         android:text="Bluetooth      "
         android:textAlignment="textStart"
         android:textColor="@color/com_facebook_blue"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/relativeLayout"
-        android:layout_alignLeft="@+id/relativeLayout"
-        android:layout_alignRight="@+id/relativeLayout"
-        android:layout_alignStart="@+id/relativeLayout"
-        android:layout_below="@+id/switchBluetooth"
-        android:text="Dispositivo conectado:"
-        android:textColor="@android:color/black"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/txtDispositivoConectado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/relativeLayout"
-        android:layout_alignLeft="@+id/relativeLayout"
-        android:layout_alignRight="@+id/relativeLayout"
-        android:layout_alignStart="@+id/relativeLayout"
-        android:layout_below="@+id/textView6"
-        android:text="------"
-        android:textColor="@color/colorAccent"
-        android:textSize="30sp"
-        android:textStyle="italic" />
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/btnBuscarDispositivos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/relativeLayout"
-        android:layout_alignLeft="@+id/switchBluetooth"
-        android:layout_alignRight="@+id/relativeLayout"
-        android:layout_alignStart="@+id/switchBluetooth"
-        android:layout_below="@+id/txtDispositivoConectado"
-        android:text="@string/buscar_dispositivos" />
+        android:text="@string/buscar_dispositivos"
+        android:layout_below="@+id/switchBluetooth"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp" />
+
+    <Button
+        android:id="@+id/btnVer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txtTituloLogin"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/txtTituloLogin"
+        android:text="Ver menu" />
 
 </RelativeLayout>
