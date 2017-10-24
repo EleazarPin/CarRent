@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -28,6 +29,10 @@ public class BluetoothFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    TextView txtNombreDispositivo;
+    TextView txtDireccionDispositivo;
+    TextView txtAuxiliar;
 
     public BluetoothFragment() {
         // Required empty public constructor
@@ -64,6 +69,17 @@ public class BluetoothFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        View rootView = inflater.inflate(R.layout.fragment_bluetooth, container, false);
+        Bundle bundle = this.getArguments();
+
+        txtNombreDispositivo = (TextView)rootView.findViewById(R.id.txtNombreDispositivo);
+        txtDireccionDispositivo = (TextView)rootView.findViewById(R.id.txtMacAddress);
+        txtAuxiliar = (TextView)rootView.findViewById(R.id.txtPosicion);
+
+        txtNombreDispositivo.setText(bundle.getString("N_BT"));
+        txtDireccionDispositivo.setText(bundle.getString("D_BT"));
+
         return inflater.inflate(R.layout.fragment_bluetooth, container, false);
     }
 

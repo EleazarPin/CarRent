@@ -19,7 +19,8 @@ import android.widget.Toast;
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    //boolean bluetoothEncendido = false;
+    private String NombreDispositivoBluetooth;
+    private String DireccionDispositivoBluetooth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,12 @@ public class NavigationDrawer extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        Intent intent=getIntent();
+        Bundle extras=intent.getExtras();
+
+        NombreDispositivoBluetooth = extras.getString("Nombre_dispositivo");
+        DireccionDispositivoBluetooth = extras.getString("Direccion_bluetooth");
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -97,6 +104,10 @@ public class NavigationDrawer extends AppCompatActivity
 
         } else if (id == R.id.nav_bluetooth){
             BluetoothFragment bluetoothFragment = new BluetoothFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("N_BT",NombreDispositivoBluetooth);
+            bundle.putString("D_BT",DireccionDispositivoBluetooth);
+            bluetoothFragment.setArguments(bundle);
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.relativelayout_for_fragment,
                     bluetoothFragment,

@@ -133,7 +133,9 @@ public class DeviceListActivity extends Activity {
                     //i.putExtra("Direccion_Bluethoot", direccionBluethoot);
 
                     Intent navigationIntent = new Intent(DeviceListActivity.this, NavigationDrawer.class);
-                    navigationIntent.putExtra("Dispositivo", dispositivo);
+                    navigationIntent.putExtra("Nombre_dispositivo", dispositivo.getName());
+                    navigationIntent.putExtra("Direccion_bluetooth", dispositivo.getAddress());
+
                     startActivity(navigationIntent);
 
                 }  //si se detrecto un desaemparejamiento
