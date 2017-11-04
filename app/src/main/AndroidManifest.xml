@@ -34,8 +34,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ComunicationActivity"></activity>
-
         <activity
             android:name=".NavigationDrawer"
             android:label="@string/title_activity_navigation_drawer"

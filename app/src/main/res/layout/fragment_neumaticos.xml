@@ -1,26 +1,30 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="25dp"
+    tools:layout_editor_absoluteX="0dp">
 
     <TextView
         android:id="@+id/txtVwTipoNeumaticos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/radioGroup3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="12dp"
-        android:layout_marginStart="25dp"
+        android:layout_width="315dp"
+        android:layout_height="63dp"
         android:fontFamily="sans-serif"
         android:text="@string/txtVwTipoNeumaticos"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold"
         tools:ignore="RtlHardcoded"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        android:layout_marginEnd="21dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteY="18dp"
+        tools:layout_editor_absoluteX="11dp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -29,34 +33,36 @@
         android:text="@string/velocidad_m_xima"
         android:textSize="24sp"
         tools:ignore="RtlHardcoded"
-        android:layout_alignBaseline="@+id/editText"
-        android:layout_alignBottom="@+id/editText"
-        android:layout_alignLeft="@+id/radioGroup3"
-        android:layout_alignStart="@+id/radioGroup3" />
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup3"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/editTextVelocidad"
+        android:layout_width="214dp"
+        android:layout_height="38dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/name"
         tools:ignore="RtlHardcoded"
-        android:layout_marginBottom="23dp"
-        android:layout_above="@+id/btnEnviarNyV"
-        android:layout_alignLeft="@+id/btnEnviarNyV"
-        android:layout_alignStart="@+id/btnEnviarNyV"
-        android:layout_alignRight="@+id/btnEnviarNyV"
-        android:layout_alignEnd="@+id/btnEnviarNyV" />
+        android:layout_marginEnd="21dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintRight_toLeftOf="@+id/btnVelMax"
+        android:layout_marginRight="21dp"
+        tools:layout_editor_absoluteY="244dp"
+        tools:layout_editor_absoluteX="25dp" />
 
     <RadioGroup
         android:id="@+id/radioGroup3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="31dp"
-        android:layout_above="@+id/editText"
-        android:layout_alignLeft="@+id/txtVwTipoNeumaticos"
-        android:layout_alignStart="@+id/txtVwTipoNeumaticos">
+        android:layout_marginTop="9dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtVwTipoNeumaticos"
+        android:layout_marginLeft="24dp"
+        app:layout_constraintLeft_toLeftOf="parent">
 
         <RadioButton
             android:id="@+id/rdbNormales"
@@ -88,15 +94,13 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/btnEnviarNyV"
+        android:id="@+id/btnVelMax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"
-        android:layout_marginRight="21dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="209dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginRight="45dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="289dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 
 /**
@@ -19,6 +21,9 @@ public class NeumaticosFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
+    EditText editTextVelocidad;
+    Button btnEnviarVelocidad;
+
     public NeumaticosFragment() {
         // Required empty public constructor
     }
@@ -27,8 +32,19 @@ public class NeumaticosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_neumaticos, container, false);
+
+        LayoutInflater lf = getActivity().getLayoutInflater();
+        View view =  lf.inflate(R.layout.fragment_neumaticos, container, false);
+
+        Bundle bundle = this.getArguments();
+        // Seguir aca.
+        // bundle.getString("N_BT")
+        // bundle.getString("D_BT")
+
+        editTextVelocidad =  (EditText) view.findViewById(R.id.editTextVelocidad);
+        btnEnviarVelocidad = (Button) view.findViewById(R.id.btnVelMax);
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
