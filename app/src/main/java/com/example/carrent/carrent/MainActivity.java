@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
         swActivarBluetooth = (Switch) findViewById(R.id.switchBluetooth);
         btnBuscarDispositivos = (Button) findViewById(R.id.btnBuscarDispositivos);
         btnVer = (Button) findViewById(R.id.btnVer);
-        btnVer .setOnClickListener(botonListener);
+        btnVer.setOnClickListener(botonListener);
 
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 

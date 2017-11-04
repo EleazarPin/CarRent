@@ -4,10 +4,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import static android.content.ContentValues.TAG;
 
 
 /**
@@ -69,18 +72,19 @@ public class BluetoothFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        LayoutInflater lf = getActivity().getLayoutInflater();
+        View view =  lf.inflate(R.layout.fragment_bluetooth, container, false);
 
-        View rootView = inflater.inflate(R.layout.fragment_bluetooth, container, false);
         Bundle bundle = this.getArguments();
 
-        txtNombreDispositivo = (TextView)rootView.findViewById(R.id.txtNombreDispositivo);
-        txtDireccionDispositivo = (TextView)rootView.findViewById(R.id.txtMacAddress);
-        txtAuxiliar = (TextView)rootView.findViewById(R.id.txtPosicion);
+        txtNombreDispositivo = (TextView)view.findViewById(R.id.txtNombreDispositivo);
+        txtDireccionDispositivo = (TextView)view.findViewById(R.id.txtMacAddress);
+        txtAuxiliar = (TextView)view.findViewById(R.id.txtPosicion);
 
         txtNombreDispositivo.setText(bundle.getString("N_BT"));
         txtDireccionDispositivo.setText(bundle.getString("D_BT"));
 
-        return inflater.inflate(R.layout.fragment_bluetooth, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
