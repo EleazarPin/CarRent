@@ -89,9 +89,13 @@ public class NavigationDrawer extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Bundle bundle = new Bundle();
+        bundle.putString("N_BT",NombreDispositivoBluetooth);
+        bundle.putString("D_BT",DireccionDispositivoBluetooth);
 
         if (id == R.id.nav_neumaticos) {
             NeumaticosFragment neumaticosFragment = new NeumaticosFragment();
+            neumaticosFragment.setArguments(bundle);
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.relativelayout_for_fragment,
                     neumaticosFragment,
@@ -104,9 +108,6 @@ public class NavigationDrawer extends AppCompatActivity
 
         } else if (id == R.id.nav_bluetooth){
             BluetoothFragment bluetoothFragment = new BluetoothFragment();
-            Bundle bundle = new Bundle();
-            bundle.putString("N_BT",NombreDispositivoBluetooth);
-            bundle.putString("D_BT",DireccionDispositivoBluetooth);
             bluetoothFragment.setArguments(bundle);
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.relativelayout_for_fragment,

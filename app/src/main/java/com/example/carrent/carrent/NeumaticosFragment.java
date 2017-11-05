@@ -70,7 +70,8 @@ public class NeumaticosFragment extends Fragment {
         Bundle bundle = this.getArguments();
 
         //Obtengo el parametro, aplicando un Bundle, que me indica la Mac Adress del HC05
-        address = bundle.getString("D_BT");
+        Log.i(TAG, bundle.getString("D_BT").toString());
+        address = bundle.getString("D_BT").toString();
 
         //obtengo el adaptador del bluethoot
         btAdapter = BluetoothAdapter.getDefaultAdapter();
