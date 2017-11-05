@@ -29,6 +29,8 @@ public class NavigationDrawer extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        setTitle("Car Rent Tracking");
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -43,7 +45,20 @@ public class NavigationDrawer extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // Inicio por default con el fragmento bluetooth
+        Bundle bundle = new Bundle();
+        bundle.putString("N_BT",NombreDispositivoBluetooth);
+        bundle.putString("D_BT",DireccionDispositivoBluetooth);
+        BluetoothFragment bluetoothFragment = new BluetoothFragment();
+        bluetoothFragment.setArguments(bundle);
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.relativelayout_for_fragment,
+                bluetoothFragment,
+                bluetoothFragment.getTag()).commit();
     }
+
+
 
     @Override
     public void onBackPressed() {

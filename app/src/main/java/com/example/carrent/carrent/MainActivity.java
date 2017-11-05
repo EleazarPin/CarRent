@@ -41,54 +41,53 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        swActivarBluetooth = (Switch) findViewById(R.id.switchBluetooth);
-        btnBuscarDispositivos = (Button) findViewById(R.id.btnBuscarDispositivos);
-        btnVer = (Button) findViewById(R.id.btnVer);
-        btnVer.setOnClickListener(botonListener);
-
-        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-
-        mProgressDlg = new ProgressDialog(this);
-
-        mProgressDlg.setMessage("Buscando dispositivos...");
-        mProgressDlg.setCancelable(false);
-
-        mProgressDlg.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancelar", btnCancelarDialogListener);
-
-
-        if (mBluetoothAdapter == null)
-        {
-            //si el celular no soporta bluetooth
-            Toast.makeText(getApplicationContext(),"Bluetooth no es soportado por el dispositivo móvil",Toast.LENGTH_LONG).show();
-        }
-        else
-        {
-            swActivarBluetooth.setOnCheckedChangeListener(swBluetooth);
-            btnBuscarDispositivos.setOnClickListener(btnBuscarDispositivosListener);
-
-            if (mBluetoothAdapter.isEnabled())
-            {
-                swActivarBluetooth.setChecked(true);
-                Toast.makeText(getApplicationContext(),"Bluetooth activado",Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        IntentFilter filter = new IntentFilter();
-
-        filter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED); //Cambia el estado del bluetooth (Acrtivado /Desactivado)
-        filter.addAction(BluetoothDevice.ACTION_FOUND); //Se encuentra un dispositivo bluetooth al realizar una busqueda
-        filter.addAction(BluetoothDevice.ACTION_NAME_CHANGED);
-        filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED); //Cuando se comienza una busqueda de bluetooth
-        filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED); //cuando la busqueda de bluetooth finaliza
-
-        //se define (registra) el handler que captura los broadcast anterirmente mencionados.
-        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
-        checkLocationPermission();
-        registerReceiver(mReceiver, filter);
-
         if (getIntent().getBooleanExtra("EXIT", false)) {
             finish();
         }
+        else {
+
+            swActivarBluetooth = (Switch) findViewById(R.id.switchBluetooth);
+            btnBuscarDispositivos = (Button) findViewById(R.id.btnBuscarDispositivos);
+            btnVer = (Button) findViewById(R.id.btnVer);
+            btnVer.setOnClickListener(botonListener);
+
+            mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+            mProgressDlg = new ProgressDialog(this);
+
+            mProgressDlg.setMessage("Buscando dispositivos...");
+            mProgressDlg.setCancelable(false);
+
+            mProgressDlg.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancelar", btnCancelarDialogListener);
+
+
+            if (mBluetoothAdapter == null) {
+                //si el celular no soporta bluetooth
+                Toast.makeText(getApplicationContext(), "Bluetooth no es soportado por el dispositivo móvil", Toast.LENGTH_LONG).show();
+            } else {
+                swActivarBluetooth.setOnCheckedChangeListener(swBluetooth);
+                btnBuscarDispositivos.setOnClickListener(btnBuscarDispositivosListener);
+
+                if (mBluetoothAdapter.isEnabled()) {
+                    swActivarBluetooth.setChecked(true);
+                    Toast.makeText(getApplicationContext(), "Bluetooth activado", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            IntentFilter filter = new IntentFilter();
+
+            filter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED); //Cambia el estado del bluetooth (Acrtivado /Desactivado)
+            filter.addAction(BluetoothDevice.ACTION_FOUND); //Se encuentra un dispositivo bluetooth al realizar una busqueda
+            filter.addAction(BluetoothDevice.ACTION_NAME_CHANGED);
+            filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED); //Cuando se comienza una busqueda de bluetooth
+            filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED); //cuando la busqueda de bluetooth finaliza
+
+            //se define (registra) el handler que captura los broadcast anterirmente mencionados.
+            int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
+            checkLocationPermission();
+            registerReceiver(mReceiver, filter);
+        }
+
     }
 
     protected void checkLocationPermission() {

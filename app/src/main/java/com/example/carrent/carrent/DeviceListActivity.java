@@ -137,6 +137,7 @@ public class DeviceListActivity extends Activity {
                     navigationIntent.putExtra("Direccion_bluetooth", dispositivo.getAddress());
 
                     startActivity(navigationIntent);
+                    finish();
 
                 }  //si se detrecto un desaemparejamiento
                 else if (state == BluetoothDevice.BOND_NONE && prevState == BluetoothDevice.BOND_BONDED) {
