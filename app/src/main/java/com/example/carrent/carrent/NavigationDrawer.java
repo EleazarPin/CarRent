@@ -116,11 +116,26 @@ public class NavigationDrawer extends AppCompatActivity
                     neumaticosFragment,
                     neumaticosFragment.getTag()).commit();
         } else if (id == R.id.nav_nivelhumo) {
-
+            LimiteHumoFragment limiteHumoFragment = new LimiteHumoFragment();
+            limiteHumoFragment.setArguments(bundle);
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.relativelayout_for_fragment,
+                    limiteHumoFragment,
+                    limiteHumoFragment.getTag()).commit();
         } else if (id == R.id.nav_importararchivo) {
-
+            ImportarArchivoFragment importarArchivoFragment = new ImportarArchivoFragment();
+            importarArchivoFragment.setArguments(bundle);
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.relativelayout_for_fragment,
+                    importarArchivoFragment,
+                    importarArchivoFragment.getTag()).commit();
         } else if (id == R.id.nav_settings){
-
+            SettingsFragment settingsFragment = new SettingsFragment();
+            settingsFragment.setArguments(bundle);
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.relativelayout_for_fragment,
+                    settingsFragment,
+                    settingsFragment.getTag()).commit();
         } else if (id == R.id.nav_bluetooth){
             BluetoothFragment bluetoothFragment = new BluetoothFragment();
             bluetoothFragment.setArguments(bundle);
@@ -129,6 +144,12 @@ public class NavigationDrawer extends AppCompatActivity
                     bluetoothFragment,
                     bluetoothFragment.getTag()).commit();
         } else if (id == R.id.nav_reset_arduino){
+            ResetFragment resetFragment = new ResetFragment();
+            resetFragment.setArguments(bundle);
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.relativelayout_for_fragment,
+                    resetFragment,
+                    resetFragment.getTag()).commit();
 
         } else if (id == R.id.nav_exit_app){
             salirDeLaApp();

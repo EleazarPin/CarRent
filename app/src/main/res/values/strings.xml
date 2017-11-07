@@ -24,5 +24,5 @@
     <string name="rdbConCadenaText">Con cadena</string>
     <string name="txtVwTipoNeumaticos">Seleccione el tipo de neumáticos</string>
     <string name="textview1">Información adicional:</string>
-    <string name="velocidad_m_xima">Velocidad máxima</string>
+    <string name="velocidad_m_xima">Velocidad máxima:</string>
 </resources>
