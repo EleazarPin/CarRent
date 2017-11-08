@@ -20,7 +20,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/txtNivelHumoNuevo"
         android:layout_width="80dp"
         android:layout_height="45dp"
         android:layout_marginLeft="23dp"
@@ -105,6 +105,6 @@
         android:layout_marginTop="41dp"
         android:text="Establecer nivel de humo"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNivelHumoNuevo" />
 
 </android.support.constraint.ConstraintLayout>
