@@ -116,9 +116,9 @@ public class LimiteHumoFragment extends Fragment {
         //El hilo secundario va a mostrar informacion al layout atraves utilizando indeirectamente a este handler
         bluetoothIn = Handler_Msg_Hilo_Principal();
 
-        editTextNivelActual = (EditText) view.findViewById(R.id.txtNivelHumoActual);
+        editTextNivelActual = (EditText) view.findViewById(R.id.editNivelHumoActual);
         editTextNivelActual.setEnabled(false);
-        editTextNivelNuevo = (EditText) view.findViewById(R.id.txtNivelHumoNuevo);
+        editTextNivelNuevo = (EditText) view.findViewById(R.id.editNivelHumoNuevo);
         btnEnviarNuevoNivelHumo = (Button) view.findViewById(R.id.btnEstablecerNivelHumo);
 
         btnEnviarNuevoNivelHumo.setOnClickListener(btnEnviarNuevoNivelHumoListener);
@@ -130,10 +130,10 @@ public class LimiteHumoFragment extends Fragment {
         @Override
         public void onClick(View v) {
 
-            String textoEnviado = editTextNivelNuevo.getText().toString();
+            String textoEnviado = editTextNivelNuevo.getText().toString() + "#setMQ7";
             Log.i(TAG, "Texto enviado a arduino: " + textoEnviado);
             mConnectedThread.write(textoEnviado);
-            editTextNivelActual.setText(textoEnviado);
+            editTextNivelActual.setText(textoEnviado.replace("#setMQ7",""));
         }
     };
 

@@ -3,8 +3,6 @@ package com.example.carrent.carrent;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
-import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -36,7 +34,8 @@ public class NeumaticosFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     // Propio del fragment
-    EditText editTextVelocidad;
+    EditText editTextVelocidadActual;
+    EditText editTextVelocidadNueva;
     Button btnEnviarVelocidad;
 
     // Variables de bluetooth
@@ -80,7 +79,9 @@ public class NeumaticosFragment extends Fragment {
         //El hilo secundario va a mostrar informacion al layout atraves utilizando indeirectamente a este handler
         bluetoothIn = Handler_Msg_Hilo_Principal();
 
-        editTextVelocidad =  (EditText) view.findViewById(R.id.editTextVelocidad);
+        editTextVelocidadActual =  (EditText) view.findViewById(R.id.editVelocidadActual);
+        editTextVelocidadActual.setEnabled(false);
+        editTextVelocidadNueva =  (EditText) view.findViewById(R.id.editVelocidadNueva);
         btnEnviarVelocidad = (Button) view.findViewById(R.id.btnVelMax);
 
         btnEnviarVelocidad.setOnClickListener(btnEnviarVelocidadListener);
@@ -92,9 +93,10 @@ public class NeumaticosFragment extends Fragment {
         @Override
         public void onClick(View v) {
 
-            String textoEnviado = editTextVelocidad.getText().toString();
+            String textoEnviado = editTextVelocidadNueva.getText().toString() + "#setVel";;
             Log.i(TAG, "Texto enviado a arduino: " + textoEnviado);
-            mConnectedThread.write(textoEnviado);
+            mConnectedThread.write(textoEnviado + "");
+            editTextVelocidadActual.setText(textoEnviado.replace("#setVel",""));
         }
     };
 

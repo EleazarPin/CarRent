@@ -3,7 +3,6 @@ package com.example.carrent.carrent;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -44,7 +43,9 @@ public class ResetFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     // Propio del fragment.
-    Button btnReset;
+    Button btnResetTracking;
+    Button btnResetEvents;
+    Button btnResetAll;
 
     // Variables de bluetooth
     Handler bluetoothIn;
@@ -113,17 +114,43 @@ public class ResetFragment extends Fragment {
         //El hilo secundario va a mostrar informacion al layout atraves utilizando indeirectamente a este handler
         bluetoothIn = Handler_Msg_Hilo_Principal();
 
-        btnReset = (Button) view.findViewById(R.id.btnReset);
-        btnReset.setOnClickListener(btnResetListener);
+        btnResetTracking = (Button) view.findViewById(R.id.btnClearTracking);
+        btnResetTracking.setOnClickListener(btnResetTrackingListener);
+
+        btnResetEvents = (Button) view.findViewById(R.id.btnClearEvents);
+        btnResetEvents.setOnClickListener(btnResetEventsListener);
+
+        btnResetAll = (Button) view.findViewById(R.id.btnClearAll);
+        btnResetAll.setOnClickListener(btnResetAllListener);
 
         return view;
     }
 
-    private View.OnClickListener btnResetListener = new View.OnClickListener() {
+    private View.OnClickListener btnResetTrackingListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
 
-            String textoEnviado = "RESET000";
+            String textoEnviado = "clear#traking";
+            Log.i(TAG, "Texto enviado a arduino: " + textoEnviado);
+            mConnectedThread.write(textoEnviado);
+        }
+    };
+
+    private View.OnClickListener btnResetEventsListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            String textoEnviado = "clear#evento";
+            Log.i(TAG, "Texto enviado a arduino: " + textoEnviado);
+            mConnectedThread.write(textoEnviado);
+        }
+    };
+
+    private View.OnClickListener btnResetAllListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            String textoEnviado = "clear#all";
             Log.i(TAG, "Texto enviado a arduino: " + textoEnviado);
             mConnectedThread.write(textoEnviado);
         }
