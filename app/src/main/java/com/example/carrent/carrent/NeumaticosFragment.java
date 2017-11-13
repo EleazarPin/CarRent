@@ -97,6 +97,7 @@ public class NeumaticosFragment extends Fragment {
             Log.i(TAG, "Texto enviado a arduino: " + textoEnviado);
             mConnectedThread.write(textoEnviado + "");
             editTextVelocidadActual.setText(textoEnviado.replace("#setVel",""));
+            Toast.makeText(getActivity(), "Limite de velocidad actualizado", Toast.LENGTH_SHORT).show();
         }
     };
 

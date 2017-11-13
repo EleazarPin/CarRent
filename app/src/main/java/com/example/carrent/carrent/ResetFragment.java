@@ -133,6 +133,7 @@ public class ResetFragment extends Fragment {
             String textoEnviado = "clear#traking";
             Log.i(TAG, "Texto enviado a arduino: " + textoEnviado);
             mConnectedThread.write(textoEnviado);
+            Toast.makeText(getActivity(), "Datos del tracking borrados", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -143,6 +144,7 @@ public class ResetFragment extends Fragment {
             String textoEnviado = "clear#evento";
             Log.i(TAG, "Texto enviado a arduino: " + textoEnviado);
             mConnectedThread.write(textoEnviado);
+            Toast.makeText(getActivity(), "Datos de los eventos borrados", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -153,6 +155,7 @@ public class ResetFragment extends Fragment {
             String textoEnviado = "clear#all";
             Log.i(TAG, "Texto enviado a arduino: " + textoEnviado);
             mConnectedThread.write(textoEnviado);
+            Toast.makeText(getActivity(), "Todos los datos fueron borrados", Toast.LENGTH_SHORT).show();
         }
     };
 

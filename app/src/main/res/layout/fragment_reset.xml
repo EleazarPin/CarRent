@@ -12,7 +12,7 @@
         android:layout_width="164dp"
         android:layout_height="128dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="119dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/custombutton"
         android:text="Borrar los datos del Tracking de la tarjeta SD"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -25,12 +25,12 @@
         android:background="@drawable/custombutton"
         android:text="Borrar los datos de los eventos de la tarjeta SD"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="119dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintLeft_toRightOf="@+id/btnClearTracking"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.666" />
 
     <Button
         android:id="@+id/btnClearAll"

@@ -134,6 +134,7 @@ public class LimiteHumoFragment extends Fragment {
             Log.i(TAG, "Texto enviado a arduino: " + textoEnviado);
             mConnectedThread.write(textoEnviado);
             editTextNivelActual.setText(textoEnviado.replace("#setMQ7",""));
+            Toast.makeText(getActivity(), "Nivel de humo actualizado", Toast.LENGTH_SHORT).show();
         }
     };
 
