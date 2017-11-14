@@ -216,9 +216,7 @@ public class NeumaticosFragment extends Fragment {
                     if (endOfLineIndex > 0)
                     {
                         String dataInPrint = recDataString.substring(0, endOfLineIndex);
-
                         Log.i(TAG, "Recibido de arduino: " + dataInPrint);
-
                         recDataString.delete(0, recDataString.length());
                     }
                 }
@@ -269,6 +267,8 @@ public class NeumaticosFragment extends Fragment {
                     //se muestran en el layout de la activity, utilizando el handler del hilo
                     // principal antes mencionado
                     bluetoothIn.obtainMessage(handlerState, bytes, -1, readMessage).sendToTarget();
+                    if(!readMessage.isEmpty())
+                        Log.i(TAG, "Recibido de arduino: " + readMessage);
                 } catch (IOException e) {
                     break;
                 }

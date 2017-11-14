@@ -23,7 +23,7 @@
         android:layout_alignTop="@+id/btn_pair"
         android:layout_toLeftOf="@+id/btn_pair"
         android:text="Galaxy Nexus"
-        android:textColor="#000000"
+        android:textColor="@android:color/background_light"
         android:textSize="16sp" />
 
     <TextView
