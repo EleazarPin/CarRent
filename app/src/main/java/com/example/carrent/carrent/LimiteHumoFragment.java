@@ -216,7 +216,7 @@ public class LimiteHumoFragment extends Fragment {
 
         //I send a character when resuming.beginning transmission to check device is connected
         //If it is not an exception will be thrown in the write method and finish() will be called
-        mConnectedThread.write("x");
+        mConnectedThread.write("0#getMQ7");
     }
 
     @Override
@@ -306,6 +306,12 @@ public class LimiteHumoFragment extends Fragment {
                     //se muestran en el layout de la activity, utilizando el handler del hilo
                     // principal antes mencionado
                     bluetoothIn.obtainMessage(handlerState, bytes, -1, readMessage).sendToTarget();
+
+                    if(!readMessage.trim().isEmpty()) {
+                        Log.i(TAG, "Recibido de arduino: " + readMessage.trim());
+                        editTextNivelActual.setText(readMessage.trim());
+                    }
+
                 } catch (IOException e) {
                     break;
                 }

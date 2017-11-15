@@ -179,7 +179,7 @@ public class NeumaticosFragment extends Fragment {
 
         //I send a character when resuming.beginning transmission to check device is connected
         //If it is not an exception will be thrown in the write method and finish() will be called
-        mConnectedThread.write("x");
+        mConnectedThread.write("0#getVel");
     }
 
     @Override
@@ -267,8 +267,11 @@ public class NeumaticosFragment extends Fragment {
                     //se muestran en el layout de la activity, utilizando el handler del hilo
                     // principal antes mencionado
                     bluetoothIn.obtainMessage(handlerState, bytes, -1, readMessage).sendToTarget();
-                    if(!readMessage.isEmpty())
-                        Log.i(TAG, "Recibido de arduino: " + readMessage);
+
+                    if(!readMessage.trim().isEmpty()) {
+                        Log.i(TAG, "Recibido de arduino: " + readMessage.trim());
+                        editTextVelocidadActual.setText(readMessage.trim());
+                    }
                 } catch (IOException e) {
                     break;
                 }
