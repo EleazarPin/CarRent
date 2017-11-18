@@ -3,6 +3,9 @@ package com.example.carrent.carrent;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,6 +40,11 @@ public class NeumaticosFragment extends Fragment {
     EditText editTextVelocidadActual;
     EditText editTextVelocidadNueva;
     Button btnEnviarVelocidad;
+
+    // The following are used for the shake detection
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private ShakeDetector mShakeDetector;
 
     // Variables de bluetooth
     Handler bluetoothIn;
@@ -85,6 +93,23 @@ public class NeumaticosFragment extends Fragment {
         btnEnviarVelocidad = (Button) view.findViewById(R.id.btnVelMax);
 
         btnEnviarVelocidad.setOnClickListener(btnEnviarVelocidadListener);
+
+        // ShakeDetector initialization
+        mSensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager
+                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector();
+        mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
+
+            @Override
+            public void onShake(int count) {
+                String textoEnviado = editTextVelocidadNueva.getText().toString() + "#setVel";;
+                Log.i(TAG, "Texto enviado a arduino: " + textoEnviado);
+                mConnectedThread.write(textoEnviado + "");
+                editTextVelocidadActual.setText(textoEnviado.replace("#setVel",""));
+                Toast.makeText(getActivity(), "Limite de velocidad actualizado", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
     }
@@ -180,6 +205,8 @@ public class NeumaticosFragment extends Fragment {
         //I send a character when resuming.beginning transmission to check device is connected
         //If it is not an exception will be thrown in the write method and finish() will be called
         mConnectedThread.write("0#getVel");
+
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
     }
 
     @Override
@@ -193,6 +220,8 @@ public class NeumaticosFragment extends Fragment {
         } catch (IOException e2) {
             //insert code to deal with this
         }
+
+        mSensorManager.unregisterListener(mShakeDetector);
     }
 
     private BluetoothSocket createBluetoothSocket(BluetoothDevice device) throws IOException {

@@ -4,6 +4,8 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -48,6 +50,11 @@ public class LimiteHumoFragment extends Fragment {
     EditText editTextNivelActual;
     EditText editTextNivelNuevo;
     Button btnEnviarNuevoNivelHumo;
+
+    // The following are used for the shake detection
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private ShakeDetector mShakeDetector;
 
     // Variables de bluetooth
     Handler bluetoothIn;
@@ -122,6 +129,23 @@ public class LimiteHumoFragment extends Fragment {
         btnEnviarNuevoNivelHumo = (Button) view.findViewById(R.id.btnEstablecerNivelHumo);
 
         btnEnviarNuevoNivelHumo.setOnClickListener(btnEnviarNuevoNivelHumoListener);
+
+        // ShakeDetector initialization
+        mSensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager
+                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector();
+        mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
+
+            @Override
+            public void onShake(int count) {
+                String textoEnviado = editTextNivelNuevo.getText().toString() + "#setMQ7";
+                Log.i(TAG, "Texto enviado a arduino: " + textoEnviado);
+                mConnectedThread.write(textoEnviado);
+                editTextNivelActual.setText(textoEnviado.replace("#setMQ7",""));
+                Toast.makeText(getActivity(), "Nivel de humo actualizado", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
     }
@@ -217,6 +241,8 @@ public class LimiteHumoFragment extends Fragment {
         //I send a character when resuming.beginning transmission to check device is connected
         //If it is not an exception will be thrown in the write method and finish() will be called
         mConnectedThread.write("0#getMQ7");
+
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
     }
 
     @Override
@@ -230,6 +256,8 @@ public class LimiteHumoFragment extends Fragment {
         } catch (IOException e2) {
             //insert code to deal with this
         }
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
     }
 
     private BluetoothSocket createBluetoothSocket(BluetoothDevice device) throws IOException {
