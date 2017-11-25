@@ -2,21 +2,18 @@ package com.example.carrent.carrent;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-public class NavigationDrawer extends AppCompatActivity
+import com.example.carrent.carrent.com.example.carrent.carrent.commons.BTActivity;
+
+public class NavigationDrawer extends BTActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private String NombreDispositivoBluetooth;
@@ -28,7 +25,7 @@ public class NavigationDrawer extends AppCompatActivity
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        
         setTitle("Car Rent Tracking");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -77,25 +74,12 @@ public class NavigationDrawer extends AppCompatActivity
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_exit) {
-            salirDeLaApp();
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void salirDeLaApp() {
+    private void desconectar() {
+        
+        this.btService.disconnect();
+        
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("EXIT", true);
         startActivity(intent);
     }
 
@@ -110,33 +94,29 @@ public class NavigationDrawer extends AppCompatActivity
 
         if (id == R.id.nav_neumaticos) {
             NeumaticosFragment neumaticosFragment = new NeumaticosFragment();
-            neumaticosFragment.setArguments(bundle);
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.relativelayout_for_fragment,
                     neumaticosFragment,
                     neumaticosFragment.getTag()).commit();
         } else if (id == R.id.nav_nivelhumo) {
             LimiteHumoFragment limiteHumoFragment = new LimiteHumoFragment();
-            limiteHumoFragment.setArguments(bundle);
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.relativelayout_for_fragment,
                     limiteHumoFragment,
                     limiteHumoFragment.getTag()).commit();
-        } else if (id == R.id.nav_importararchivo) {
-            ImportarArchivoFragment importarArchivoFragment = new ImportarArchivoFragment();
-            importarArchivoFragment.setArguments(bundle);
+        } else if (id == R.id.nav_tracking) {
+            TrackingFragment trackingFragment = new TrackingFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.relativelayout_for_fragment,
-                    importarArchivoFragment,
-                    importarArchivoFragment.getTag()).commit();
-        } else if (id == R.id.nav_settings){
-            SettingsFragment settingsFragment = new SettingsFragment();
-            settingsFragment.setArguments(bundle);
+                    trackingFragment,
+                    trackingFragment.getTag()).commit();
+        } else if (id == R.id.nav_evento) {
+            EventoFragment eventoFragment = new EventoFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.relativelayout_for_fragment,
-                    settingsFragment,
-                    settingsFragment.getTag()).commit();
-        } else if (id == R.id.nav_bluetooth){
+                    eventoFragment,
+                    eventoFragment.getTag()).commit();
+        }else if (id == R.id.nav_bluetooth){
             BluetoothFragment bluetoothFragment = new BluetoothFragment();
             bluetoothFragment.setArguments(bundle);
             FragmentManager manager = getSupportFragmentManager();
@@ -145,14 +125,14 @@ public class NavigationDrawer extends AppCompatActivity
                     bluetoothFragment.getTag()).commit();
         } else if (id == R.id.nav_reset_arduino){
             ResetFragment resetFragment = new ResetFragment();
-            resetFragment.setArguments(bundle);
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.relativelayout_for_fragment,
                     resetFragment,
                     resetFragment.getTag()).commit();
 
-        } else if (id == R.id.nav_exit_app){
-            salirDeLaApp();
+        } else if (id == R.id.nav_desconectar){
+
+            desconectar();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

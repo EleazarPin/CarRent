@@ -25,23 +25,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:id="@+id/txtDescripcionLogin"
-        android:layout_width="336dp"
-        android:layout_height="114dp"
-        android:text="@string/login_text"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="123dp"
-        android:layout_marginTop="25dp"
-        tools:ignore="RtlHardcoded"
-        android:layout_below="@+id/txtTituloLogin"
-        android:layout_alignLeft="@+id/txtTituloLogin"
-        android:layout_alignStart="@+id/txtTituloLogin" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -76,14 +59,5 @@
         android:layout_below="@+id/switchBluetooth"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="49dp" />
-
-    <Button
-        android:id="@+id/btnVer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/txtTituloLogin"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/txtTituloLogin"
-        android:text="Ver menu" />
 
 </RelativeLayout>

@@ -63,7 +63,8 @@ public class DeviceListAdapter extends BaseAdapter {
 
         holder.nameTv.setText(device.getName());
         holder.addressTv.setText(device.getAddress());
-        holder.pairBtn.setText((device.getBondState() == BluetoothDevice.BOND_BONDED) ? "Unpair" : "Pair");
+        holder.pairBtn.setText((device.getBondState() == BluetoothDevice.BOND_BONDED) ? "Connect" : "Pair");
+        //holder.pairBtn.setText("Pair");
         holder.pairBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

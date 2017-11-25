@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_fecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:text="22/11/2017 16:45:23" />
+
+    <TextView
+        android:id="@+id/tv_accion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_fecha"
+        android:layout_alignParentLeft="true"
+        android:text="Accion"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tv_mensaje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_fecha"
+        android:layout_alignParentLeft="true"
+        android:text="Mensaje" />
+
+    <TextView
+        android:id="@+id/tv_extra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_mensaje"
+        android:layout_alignParentLeft="true"
+        android:text="" />
+
+</LinearLayout>

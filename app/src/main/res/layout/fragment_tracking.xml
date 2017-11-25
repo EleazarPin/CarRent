@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_fecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:text="22/11/2017 16:45:23"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_posicion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_fecha"
+        android:layout_alignParentLeft="true"
+        android:text="Posicion: -34.5555,-54.22222" />
+
+    <TextView
+        android:id="@+id/tv_velocidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_posicion"
+        android:layout_alignParentLeft="true"
+        android:text="Velocidad: 10 kmph" />
+
+    <TextView
+        android:id="@+id/tv_altura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_velocidad"
+        android:layout_alignParentLeft="true"
+        android:text="Altura: 0 m" />
+
+    <TextView
+        android:id="@+id/tv_grados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_altura"
+        android:layout_alignParentLeft="true"
+        android:text="Grados: 0°" />
+
+</LinearLayout>

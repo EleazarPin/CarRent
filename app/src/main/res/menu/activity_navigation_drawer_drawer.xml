@@ -11,14 +11,14 @@
             android:icon="@drawable/smoke_icon"
             android:title="Establecer límites de humo" />
         <item
-            android:id="@+id/nav_importararchivo"
+            android:id="@+id/nav_tracking"
             android:icon="@drawable/files_icon"
-            android:title="Importar archivo" />
+            android:title="Tracking" />
         <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/setting_icon"
-            android:title="Settings" />
-        <!--<item-->
+            android:id="@+id/nav_evento"
+            android:icon="@drawable/files_icon"
+            android:title="Eventos" />
+                <!--<item-->
             <!--android:id="@+id/nav_manage"-->
             <!--android:icon="@drawable/ic_menu_manage"-->
             <!--android:title="Tools" />-->
@@ -29,7 +29,7 @@
             <item
                 android:id="@+id/nav_bluetooth"
                 android:icon="@drawable/bluetooth_icon"
-                android:title="Configurar Bluetooth"
+                android:title="Bluetooth info"
                 android:visible="true" />
             <item
                 android:id="@+id/nav_reset_arduino"
@@ -37,9 +37,9 @@
                 android:title="Reset arduino"
                 android:visible="true" />
             <item
-                android:id="@+id/nav_exit_app"
+                android:id="@+id/nav_desconectar"
                 android:icon="@drawable/exit_icon"
-                android:title="Salir"
+                android:title="Desconectar"
                 android:visible="true" />
         </menu>
     </item>

@@ -21,21 +21,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         tools:ignore="RtlHardcoded" />
 
-    <EditText
-        android:id="@+id/editVelocidadNueva"
-        android:layout_width="77dp"
-        android:layout_height="45dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="22dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="0"
-        android:textColor="@android:color/holo_blue_bright"
-        app:layout_constraintHorizontal_bias="0.84"
-        app:layout_constraintLeft_toRightOf="@+id/textView5"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editVelocidadActual" />
 
     <TextView
         android:id="@+id/textView16"
@@ -86,25 +71,11 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="RtlHardcoded" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="34dp"
-        android:text="Nueva vel. máxima:"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16"
-        tools:ignore="RtlHardcoded" />
-
     <Button
         android:id="@+id/btnVelMax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Establecer velocidad máxima"
+        android:text="Actualizar"
         android:layout_marginRight="16dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -148,7 +119,7 @@
             tools:ignore="RtlHardcoded" />
 
         <RadioButton
-            android:id="@+id/rdbConCadena"
+            android:id="@+id/rdbConClavo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/textView4"
@@ -156,7 +127,7 @@
             android:layout_alignStart="@+id/radioGroup3"
             android:layout_marginBottom="25dp"
             android:buttonTint="@android:color/background_light"
-            android:text="@string/rdbConCadenaText"
+            android:text="Con clavos"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             tools:ignore="RtlHardcoded" />
